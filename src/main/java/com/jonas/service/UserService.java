@@ -1,11 +1,13 @@
 package com.jonas.service;
 
 import com.jonas.domain.User;
+import com.jonas.domain.UserProperty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,7 +21,14 @@ public class UserService {
     @Value("#{systemProperties['user.userHobbies'] ?: T(java.util.Arrays).asList('swim')}")
     private List<String> userHobbies;
 
+    @Autowired
+    private UserProperty userProperty;
+
     public User getUser() {
+        return new User(userProperty.getUserName(), userProperty.getUserAge(), new ArrayList<>());
+    }
+
+    public User getUserInfo() {
         return new User(userName, userAge, userHobbies);
     }
 }
