@@ -12,6 +12,7 @@ import java.util.List;
 
 @Service
 @PropertySource("user.properties")
+//@ConditionalOnProperty(prefix = "user", name = "enable", havingValue = "true")
 public class UserService {
 
     @Value("${user.userName}")
