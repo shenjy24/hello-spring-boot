@@ -1,5 +1,6 @@
 package com.jonas.controller;
 
+import com.jonas.component.PropertyConfigurer;
 import com.jonas.domain.User;
 import com.jonas.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,10 @@ public class UserController {
     @PostMapping("getUser")
     public User getUser() {
         return userService.getUser();
+    }
+
+    @PostMapping("getProperty")
+    public String getProperty(String key) {
+        return PropertyConfigurer.getString(key);
     }
 }

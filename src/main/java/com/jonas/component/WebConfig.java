@@ -1,4 +1,4 @@
-package com.jonas.config;
+package com.jonas.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

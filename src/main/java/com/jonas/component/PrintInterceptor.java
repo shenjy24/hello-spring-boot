@@ -1,4 +1,4 @@
-package com.jonas.config;
+package com.jonas.component;
 
 import com.jonas.domain.User;
 import com.jonas.service.UserService;
