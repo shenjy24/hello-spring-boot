@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author shenjy
  * @createTime 2022/2/28 14:43
- * @description PropertyUtil
+ * @description 获取配置属性工具
  */
 @Component
 public class PropertyConfigurer extends PropertySourcesPlaceholderConfigurer  {
