@@ -1,8 +1,8 @@
 package com.jonas.controller;
 
-import com.jonas.component.SpringContext;
+import com.jonas.component.context.SpringContext;
 import com.jonas.domain.User;
-import com.jonas.service.UserService;
+import com.jonas.service.PropertyService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ public class ContextController {
 
     @PostMapping("getUser")
     public User getUser() {
-        UserService userService = SpringContext.getBean(UserService.class);
-        return userService.getUser();
+        PropertyService propertyService = SpringContext.getBean(PropertyService.class);
+        return propertyService.getUser();
     }
 }

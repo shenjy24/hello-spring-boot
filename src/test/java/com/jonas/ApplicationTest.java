@@ -1,6 +1,6 @@
 package com.jonas;
 
-import com.jonas.component.PropertyConfigurer;
+import com.jonas.component.property.PropertyConfigurer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.jonas.component;
+package com.jonas.component.context;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ApplicationContextEvent;

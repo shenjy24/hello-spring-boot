@@ -1,4 +1,4 @@
-package com.jonas.component;
+package com.jonas.component.property;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;

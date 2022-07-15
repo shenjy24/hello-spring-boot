@@ -1,7 +1,7 @@
 package com.jonas.component;
 
 import com.jonas.domain.User;
-import com.jonas.service.UserService;
+import com.jonas.service.PropertyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,11 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 public class PrintInterceptor implements HandlerInterceptor {
 
     @Autowired
-    private UserService userService;
+    private PropertyService propertyService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        User user = userService.getUser();
+        User user = propertyService.getUser();
         log.info(user.toString());
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
