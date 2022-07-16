@@ -8,6 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -27,6 +29,15 @@ public class UserService {
 
     public User getUser() {
         return new User(userProperty.getUserName(), userProperty.getUserAge(), new ArrayList<>());
+    }
+
+    public User getUser(String name) {
+        return new User(name, userProperty.getUserAge(), new ArrayList<>());
+    }
+
+    public List<User> listUser() {
+        User user = new User(userProperty.getUserName(), userProperty.getUserAge(), new ArrayList<>());
+        return Collections.singletonList(user);
     }
 
     public User getUserInfo() {

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -17,6 +19,16 @@ public class UserController {
     @PostMapping("getUser")
     public User getUser() {
         return userService.getUser();
+    }
+
+    @PostMapping("getUserByName")
+    public User getUser(String name) {
+        return userService.getUser(name);
+    }
+
+    @PostMapping("listUser")
+    public List<User> listUser() {
+        return userService.listUser();
     }
 
     @PostMapping("getProperty")
