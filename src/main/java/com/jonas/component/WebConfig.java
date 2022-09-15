@@ -14,10 +14,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     @Autowired
-    private PrintInterceptor printInterceptor;
+    private CrossOriginInterceptor crossOriginInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(printInterceptor);
+        registry.addInterceptor(crossOriginInterceptor);
     }
 }

@@ -1,3 +1,5 @@
+server:
+  domain: '*'
 spring:
   profiles:
     active: prod
