@@ -1,12 +1,12 @@
 package com.jonas.jpa.controller;
 
-import com.jonas.jpa.repository.mysql.bean.entity.User;
+import com.jonas.jpa.repository.mysql.bean.req.UserCreateReq;
+import com.jonas.jpa.repository.mysql.bean.view.UserView;
 import com.jonas.jpa.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author shenjy
@@ -19,8 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/get")
-    public User getUser(@RequestParam Long userId) {
+    @PostMapping("/get")
+    public UserView getUser(@RequestParam Long userId) {
         return userService.getUser(userId);
+    }
+
+    @PostMapping("/listUserByAgeLessThan")
+    public List<UserView> listUserByAgeLessThan(@RequestParam Integer age) {
+        return userService.listUserByAgeLessThan(age);
+    }
+
+    @PostMapping("/create")
+    public UserView createUser(@RequestBody UserCreateReq req) {
+        return userService.createUser(req);
     }
 }
