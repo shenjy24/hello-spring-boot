@@ -1,6 +1,7 @@
 package com.jonas.base.util;
 
 import com.google.gson.JsonObject;
+import com.jonas.util.GsonUtils;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author shenjy
  * @createTime 2022/7/22 13:47
- * @description 前端日志上报
+ * @description 前端日志上报 https://github.com/Meituan-Dianping/Logan
  */
 @Slf4j
 @RestController

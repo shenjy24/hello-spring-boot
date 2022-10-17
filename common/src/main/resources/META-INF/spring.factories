@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.jonas.component.AccessInterceptor,\
+com.jonas.component.CacheConfig,\
+com.jonas.component.GlobalExceptionHandler,\
+com.jonas.component.ResponseAdvice,\
+com.jonas.component.WebConfig
+

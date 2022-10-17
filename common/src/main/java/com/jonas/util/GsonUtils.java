@@ -1,4 +1,4 @@
-package com.jonas.base.util;
+package com.jonas.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
