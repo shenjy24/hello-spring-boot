@@ -7,6 +7,8 @@ import com.jonas.bean.JsonResult;
 import com.jonas.bean.SystemCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,19 +29,24 @@ public class GlobalExceptionHandler {
     @ResponseBody
     @ExceptionHandler(Exception.class)
     public JsonResult handle(Exception ex) {
+        log.error("handle exception", ex);
         if (ex instanceof BizException) {
             Iterable iterable = Splitter.on(":").trimResults().omitEmptyStrings().split(ex.getMessage());
             List<String> items = Lists.newArrayList(iterable);
             return new JsonResult(items.get(1), items.get(2), null);
         }
-        if (ex instanceof ConstraintViolationException) {
-            ConstraintViolationException exception = (ConstraintViolationException) ex;
-            String message = exception.getMessage().split(",")[0];
+        if (ex instanceof ConstraintViolationException e) {
+            String message = e.getMessage().split(",")[0];
             message = message.split(":")[1].trim();
-            return new JsonResult(SystemCode.PARAM_ERROR.getCode(), message, null);
+            return new JsonResult(SystemCode.PARAM_ERROR, message);
         }
-
-        log.error("handle exception", ex);
+        if (ex instanceof MethodArgumentNotValidException e) {
+            BindingResult result = e.getBindingResult();
+            if (result.getFieldError() != null) {
+                String msg = result.getFieldError().getDefaultMessage();
+                return new JsonResult(SystemCode.PARAM_ERROR, msg);
+            }
+        }
         return new JsonResult(SystemCode.SERVER_ERROR);
     }
 }

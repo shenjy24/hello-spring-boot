@@ -6,14 +6,13 @@ package com.jonas.bean;
  * @description 系统状态码
  */
 public enum  SystemCode implements CodeStatus {
-    SUCCESS("2000", "success"),
-    PARAM_ERROR("2001", "parameter error"),
-    SERVER_ERROR("2002", "server error"),
-    BIZ_ERROR("2003", "business error"),
+    SUCCESS("2000", "成功"),
+    PARAM_ERROR("2001", "参数异常"),
+    SERVER_ERROR("2002", "服务端异常"),
     ;
 
-    private String code;
-    private String message;
+    private final String code;
+    private final String message;
 
     SystemCode(String code, String message) {
         this.code = code;
