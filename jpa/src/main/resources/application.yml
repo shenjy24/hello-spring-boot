@@ -15,3 +15,6 @@ spring:
     hikari:
       minimum-idle: 1
       maximum-pool-size: 10
+  data:
+    mongodb:
+      uri: mongodb://jia:123456@127.0.0.1:37017/mongo

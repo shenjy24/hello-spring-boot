@@ -33,6 +33,16 @@ public class DateUtils {
 
     public static final Integer YEAR_SECOND = MONTH_SECOND * 12;
 
+    public static String dateTime2String(LocalDateTime dateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(FORMAT_YYYY_MM_DD_HH_MM_SS);
+        return formatter.format(dateTime);
+    }
+
+    public static LocalDateTime string2DateTime(String dateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(FORMAT_YYYY_MM_DD_HH_MM_SS);
+        return LocalDateTime.parse(dateTime, formatter);
+    }
+
     /**
      * 获取当前日期字符串
      *
