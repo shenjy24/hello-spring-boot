@@ -9,7 +9,7 @@ docker pull mongo
 ```
 docker run -d --name mongodb -p 37017:27017 -v E:\workspace\docker\mongo\data:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=123456 --privileged=true --restart always mongo
 ```
-- 宿主机使用`27017`端口会导致容器一直重启，暂时找不到原因。
+- 注意需要使用`-u mongodb`参数指定运行用户为`mongodb`，如果不加则使用`root`用户，会导致一直重启的问题。
 
 ### 3.创建账号
 
