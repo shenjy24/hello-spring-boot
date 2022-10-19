@@ -7,9 +7,10 @@ docker pull mongo
 ### 2.启动容器
 
 ```
-docker run -d --name mongodb -p 27017:27017 -v E:\workspace\docker\mongo\data:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=123456 --privileged=true --restart always mongo
+docker run -d --name mongodb -p 37017:27017 -v E:\workspace\docker\mongo\data:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=123456 --privileged=true --restart always mongo
 ```
 - 注意需要使用`-u mongodb`参数指定运行用户为`mongodb`，如果不加则使用`root`用户，会导致一直重启的问题。
+- 宿主机使用27017端口时，`MongoDB Compass`一直连不上，暂不知原因。
 
 ### 3.创建账号
 
