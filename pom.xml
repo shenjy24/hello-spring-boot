@@ -12,6 +12,7 @@
         <module>common</module>
         <module>feature</module>
         <module>jpa</module>
+        <module>module</module>
     </modules>
 
     <properties>
