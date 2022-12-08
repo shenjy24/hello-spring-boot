@@ -1,5 +1,4 @@
-Wiki中有博客可供参考：
-- 功能示例
-- 源码分析
-
-common项目是基础组件，封装了全局异常处理以及返回结构的封装。
+- common项目是基础组件，封装了全局异常处理以及返回结构的封装。
+- feature主要是spring boot的功能示例。
+- jpa是MySQL，MongoDB的示例。
+- module是常用功能积累。

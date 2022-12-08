@@ -15,9 +15,12 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Autowired
     private AccessInterceptor accessInterceptor;
+    @Autowired
+    private CrossOriginInterceptor crossOriginInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(crossOriginInterceptor);
         registry.addInterceptor(accessInterceptor);
     }
 }
