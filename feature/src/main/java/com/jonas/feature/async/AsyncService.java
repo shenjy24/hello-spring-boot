@@ -1,6 +1,6 @@
-package com.jonas.feature.service;
+package com.jonas.feature.async;
 
-import com.jonas.feature.component.context.SpringContext;
+import com.jonas.feature.context.SpringContext;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;

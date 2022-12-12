@@ -1,7 +1,6 @@
-package com.jonas.feature.service;
+package com.jonas.feature.property;
 
-import com.jonas.feature.bean.User;
-import com.jonas.feature.bean.UserProperty;
+import com.jonas.common.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;

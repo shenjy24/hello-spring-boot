@@ -1,4 +1,4 @@
-package com.jonas.feature.component.runner;
+package com.jonas.feature.runner;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

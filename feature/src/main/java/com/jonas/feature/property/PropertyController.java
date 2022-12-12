@@ -1,8 +1,7 @@
-package com.jonas.feature.controller;
+package com.jonas.feature.property;
 
-import com.jonas.feature.component.property.PropertyConfigurer;
-import com.jonas.feature.bean.User;
-import com.jonas.feature.service.PropertyService;
+import com.jonas.common.bean.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequiredArgsConstructor
+@RequestMapping("/property/")
 public class PropertyController {
-    @Autowired
-    private PropertyService propertyService;
+
+    private final PropertyService propertyService;
 
     @PostMapping("getUser")
     public User getUser(@RequestBody String userId) {

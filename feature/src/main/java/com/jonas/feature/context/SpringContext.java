@@ -1,4 +1,4 @@
-package com.jonas.feature.component.context;
+package com.jonas.feature.context;
 
 import org.springframework.context.ApplicationContext;
 

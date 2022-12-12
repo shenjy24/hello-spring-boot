@@ -1,6 +1,6 @@
 package com.jonas;
 
-import com.jonas.feature.component.context.SpringContextListener;
+import com.jonas.feature.context.SpringContextListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;

@@ -1,6 +1,5 @@
-package com.jonas.feature.controller;
+package com.jonas.feature.async;
 
-import com.jonas.feature.service.AsyncService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
