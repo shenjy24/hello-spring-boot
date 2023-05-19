@@ -13,6 +13,7 @@
         <module>feature</module>
         <module>jpa</module>
         <module>module</module>
+        <module>webflux</module>
     </modules>
 
     <properties>
