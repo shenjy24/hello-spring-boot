@@ -34,7 +34,11 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         accessLog.setBody(body);
 
         if (!(body instanceof JsonResult)) {
-            return GsonUtils.toJson(new JsonResult(SystemCode.SUCCESS, body));
+            if (!(body instanceof String)) {
+                return new JsonResult(SystemCode.SUCCESS, body);
+            } else {
+                return GsonUtils.toJson(new JsonResult(SystemCode.SUCCESS, body));
+            }
         }
         return body;
     }

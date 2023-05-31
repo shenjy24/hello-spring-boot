@@ -1,5 +1,6 @@
 package com.jonas.jpa.service;
 
+import com.jonas.jpa.config.LocaleHandler;
 import com.jonas.jpa.repository.mysql.bean.entity.User;
 import com.jonas.jpa.repository.mysql.bean.req.UserCreateReq;
 import com.jonas.jpa.repository.mysql.bean.view.UserView;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserService {
     private final UserDao userDao;
+    private final LocaleHandler localeHandler;
 
     public UserView getUser(long userId) {
         User user = userDao.findById(userId).orElse(null);
@@ -34,8 +37,13 @@ public class UserService {
     }
 
     public UserView createUser(UserCreateReq req) {
-        User user = User.builder().name(req.getName()).age(req.getAge()).sex(req.getSex())
-                .status(User.Status.NORMAL).createTime(LocalDateTime.now()).updateTime(LocalDateTime.now())
+        User user = User.builder()
+                .name(localeHandler.getMessageByServer(req.getName()))
+                .age(req.getAge()).sex(req.getSex())
+                .status(User.Status.NORMAL)
+                .locale(req.getLanguage())
+                .createTime(LocalDateTime.now())
+                .updateTime(LocalDateTime.now())
                 .build();
         userDao.save(user);
         return buildUserView(user);
