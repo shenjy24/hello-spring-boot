@@ -23,4 +23,9 @@ public class Txn1Service {
     public void addRequired(Txn1 user){
         txn1Dao.save(user);
     }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void addRequiredNew(Txn1 user){
+        txn1Dao.save(user);
+    }
 }

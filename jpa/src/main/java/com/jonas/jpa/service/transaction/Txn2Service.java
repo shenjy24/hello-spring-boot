@@ -30,4 +30,15 @@ public class Txn2Service {
         txn2Dao.save(user);
         throw new RuntimeException();
     }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void addRequiredNew(Txn2 user){
+        txn2Dao.save(user);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void addRequiredNewException(Txn2 user) {
+        txn2Dao.save(user);
+        throw new RuntimeException();
+    }
 }
