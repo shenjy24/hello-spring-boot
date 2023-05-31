@@ -28,4 +28,19 @@ public class JpaApplicationTest {
     public void notransaction_required_required_exception() {
         txnService.notransaction_required_required_exception();
     }
+
+    @Test
+    public void transaction_exception_required_required() {
+        txnService.transaction_exception_required_required();
+    }
+
+    @Test
+    public void transaction_required_required_exception() {
+        txnService.transaction_required_required_exception();
+    }
+
+    @Test
+    public void transaction_required_required_exception_try() {
+        txnService.transaction_required_required_exception_try();
+    }
 }
