@@ -1,6 +1,6 @@
 package com.jonas;
 
-import com.jonas.feature.component.property.PropertyConfigurer;
+import com.jonas.feature.property.PropertyConfigurer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
