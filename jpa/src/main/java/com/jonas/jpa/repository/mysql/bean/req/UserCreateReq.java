@@ -18,4 +18,5 @@ public class UserCreateReq {
     @NotNull(message = "年龄不能为空")
     private Integer age;
     private Integer sex;
+    private String language;
 }

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class CrossOriginInterceptor implements HandlerInterceptor {
 
-    @Value("${server.domain}")
+    @Value("${server.domain:*}")
     private String serverDomain;
 
     @Override

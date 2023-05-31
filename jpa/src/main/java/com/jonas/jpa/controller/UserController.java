@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -46,7 +47,11 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public UserView createUser(@Valid @RequestBody UserCreateReq req) {
+    public UserView createUser(@Valid @RequestBody UserCreateReq req,
+                               @RequestHeader("Accept-Language") String language) {
+        if (!language.isBlank()) {
+            req.setLanguage(language);
+        }
         return userService.createUser(req);
     }
 }

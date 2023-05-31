@@ -32,6 +32,8 @@ public class User {
 
     private Integer sex = Sex.MALE;
 
+    private String locale = "zh-CN";
+
     private Integer status = Status.NORMAL;
 
     private LocalDateTime createTime;
