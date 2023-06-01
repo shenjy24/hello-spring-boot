@@ -1,6 +1,6 @@
 package com.jonas.jpa;
 
-import com.jonas.jpa.service.transaction.TxnService;
+import com.jonas.jpa.service.transaction.TxnRequiredService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,30 +17,30 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class JpaApplicationTest {
 
     @Autowired
-    private TxnService txnService;
+    private TxnRequiredService txnRequiredService;
 
     @Test
     public void notransaction_exception_required_required() {
-        txnService.notransaction_exception_required_required();
+        txnRequiredService.notransaction_exception_required_required();
     }
 
     @Test
     public void notransaction_required_required_exception() {
-        txnService.notransaction_required_required_exception();
+        txnRequiredService.notransaction_required_required_exception();
     }
 
     @Test
     public void transaction_exception_required_required() {
-        txnService.transaction_exception_required_required();
+        txnRequiredService.transaction_exception_required_required();
     }
 
     @Test
     public void transaction_required_required_exception() {
-        txnService.transaction_required_required_exception();
+        txnRequiredService.transaction_required_required_exception();
     }
 
     @Test
     public void transaction_required_required_exception_try() {
-        txnService.transaction_required_required_exception_try();
+        txnRequiredService.transaction_required_required_exception_try();
     }
 }
