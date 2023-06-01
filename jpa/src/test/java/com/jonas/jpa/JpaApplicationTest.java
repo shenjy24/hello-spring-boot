@@ -1,6 +1,7 @@
 package com.jonas.jpa;
 
 import com.jonas.jpa.service.transaction.TxnRequiredService;
+import com.jonas.jpa.service.transaction.TxnService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class JpaApplicationTest {
 
     @Autowired
     private TxnRequiredService txnRequiredService;
+    @Autowired
+    private TxnService txnService;
 
     @Test
     public void notransaction_exception_required_required() {
@@ -42,5 +45,15 @@ public class JpaApplicationTest {
     @Test
     public void transaction_required_required_exception_try() {
         txnRequiredService.transaction_required_required_exception_try();
+    }
+
+    @Test
+    public void transaction_no_exception() {
+        txnService.transaction_no_exception();
+    }
+
+    @Test
+    public void transaction_no_exception_try() {
+        txnService.transaction_no_exception_try();
     }
 }

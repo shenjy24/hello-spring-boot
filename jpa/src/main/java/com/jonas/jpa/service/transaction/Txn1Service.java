@@ -19,6 +19,10 @@ public class Txn1Service {
 
     private final Txn1Dao txn1Dao;
 
+    public void add(Txn1 txn1) {
+        txn1Dao.save(txn1);
+    }
+
     @Transactional(propagation = Propagation.REQUIRED)
     public void addRequired(Txn1 user){
         txn1Dao.save(user);

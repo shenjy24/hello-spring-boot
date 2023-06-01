@@ -1,5 +1,6 @@
 package com.jonas.jpa.service.transaction;
 
+import com.jonas.jpa.repository.mysql.bean.entity.Txn1;
 import com.jonas.jpa.repository.mysql.bean.entity.Txn2;
 import com.jonas.jpa.repository.mysql.dao.Txn2Dao;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class Txn2Service {
 
     private final Txn2Dao txn2Dao;
+
+    public void add(Txn2 txn2) {
+        txn2Dao.save(txn2);
+    }
+
+    public void addException(Txn2 txn2) {
+        txn2Dao.save(txn2);
+        throw new RuntimeException();
+    }
 
     @Transactional(propagation = Propagation.REQUIRED)
     public void addRequired(Txn2 user) {
