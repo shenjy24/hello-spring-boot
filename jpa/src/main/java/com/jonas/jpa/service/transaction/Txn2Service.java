@@ -1,6 +1,5 @@
 package com.jonas.jpa.service.transaction;
 
-import com.jonas.jpa.repository.mysql.bean.entity.Txn1;
 import com.jonas.jpa.repository.mysql.bean.entity.Txn2;
 import com.jonas.jpa.repository.mysql.dao.Txn2Dao;
 import lombok.RequiredArgsConstructor;
@@ -32,12 +31,23 @@ public class Txn2Service {
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void addRequiredNew(Txn2 user){
+    public void addRequiredNew(Txn2 user) {
         txn2Dao.save(user);
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void addRequiredNewException(Txn2 user) {
+        txn2Dao.save(user);
+        throw new RuntimeException();
+    }
+
+    @Transactional(propagation = Propagation.NESTED)
+    public void addNested(Txn2 user) {
+        txn2Dao.save(user);
+    }
+
+    @Transactional(propagation = Propagation.NESTED)
+    public void addNestedException(Txn2 user) {
         txn2Dao.save(user);
         throw new RuntimeException();
     }

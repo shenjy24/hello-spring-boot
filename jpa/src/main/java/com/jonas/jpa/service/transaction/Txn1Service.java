@@ -28,4 +28,9 @@ public class Txn1Service {
     public void addRequiredNew(Txn1 user){
         txn1Dao.save(user);
     }
+
+    @Transactional(propagation = Propagation.NESTED)
+    public void addNested(Txn1 user){
+        txn1Dao.save(user);
+    }
 }
