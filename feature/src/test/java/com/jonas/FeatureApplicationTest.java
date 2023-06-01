@@ -1,5 +1,7 @@
 package com.jonas;
 
+import com.jonas.feature.property.PropertyConfigurer;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +18,7 @@ public class FeatureApplicationTest {
 
     @Test
     public void testProperty() {
-
+        String port = PropertyConfigurer.getString("server.port");
+        System.out.println(port);
     }
 }
