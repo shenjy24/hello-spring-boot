@@ -56,4 +56,9 @@ public class JpaApplicationTest {
     public void transaction_no_exception_try() {
         txnService.transaction_no_exception_try();
     }
+
+    @Test
+    public void transaction_find() {
+        txnService.transaction_find();
+    }
 }

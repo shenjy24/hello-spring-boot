@@ -53,4 +53,18 @@ public class TxnService {
             System.out.println("回滚");
         }
     }
+
+    /**
+     * 在事务中，保存成功后调用查询方法可以获取到数据
+     */
+    @Transactional
+    public void transaction_find() {
+        Txn1 txn1 = new Txn1();
+        txn1.setName("张三");
+        txn1Service.add(txn1);
+        System.out.println("保存成功，txn1:" + txn1);
+
+        Txn1 txn11 = txn1Service.get(txn1.getId());
+        System.out.println("获取Txn1, txn11:" + txn11);
+    }
 }

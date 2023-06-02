@@ -19,22 +19,26 @@ public class Txn1Service {
 
     private final Txn1Dao txn1Dao;
 
+    public Txn1 get(Long id) {
+        return txn1Dao.findById(id).orElse(null);
+    }
+
     public void add(Txn1 txn1) {
         txn1Dao.save(txn1);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void addRequired(Txn1 user){
+    public void addRequired(Txn1 user) {
         txn1Dao.save(user);
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void addRequiredNew(Txn1 user){
+    public void addRequiredNew(Txn1 user) {
         txn1Dao.save(user);
     }
 
     @Transactional(propagation = Propagation.NESTED)
-    public void addNested(Txn1 user){
+    public void addNested(Txn1 user) {
         txn1Dao.save(user);
     }
 }
