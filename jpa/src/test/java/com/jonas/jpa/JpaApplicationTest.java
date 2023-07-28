@@ -2,10 +2,12 @@ package com.jonas.jpa;
 
 import com.jonas.jpa.service.transaction.TxnRequiredService;
 import com.jonas.jpa.service.transaction.TxnService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -13,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @createTime 2023/5/31 19:48
  * @description
  */
+@Slf4j
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class JpaApplicationTest {
@@ -21,6 +24,30 @@ public class JpaApplicationTest {
     private TxnRequiredService txnRequiredService;
     @Autowired
     private TxnService txnService;
+    @Autowired
+    private RedisTemplate<Object, Object> redisTemplate;
+
+    @Test
+    public void testRedisSet() {
+        String key = "";
+        String val = "";
+        for (int i = 0; i < 10000; i++) {
+            key = "key" + i;
+            val = "val" + i;
+            log.info("set key={}, val={}", key, val);
+            redisTemplate.opsForValue().set(key, val);
+        }
+    }
+
+    @Test
+    public void testRedisDel() {
+        String key = "";
+        for (int i = 0; i < 5000; i++) {
+            key = "key" + i;
+            log.info("del key={}", key);
+            redisTemplate.delete(key);
+        }
+    }
 
     @Test
     public void notransaction_exception_required_required() {
