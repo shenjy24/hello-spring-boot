@@ -42,7 +42,7 @@ public class JpaApplicationTest {
     @Test
     public void testRedisDel() {
         String key = "";
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 10000; i++) {
             key = "key" + i;
             log.info("del key={}", key);
             redisTemplate.delete(key);

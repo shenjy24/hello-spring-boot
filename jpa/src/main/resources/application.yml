@@ -22,8 +22,9 @@ spring:
     mongodb:
       uri: mongodb://jia:123456@127.0.0.1:27017/mongo
   redis:
-    host: 127.0.0.1
+    host: 192.168.101.182
     port: 6379
+    password: jinpeng-mini-redis
     database: 0
     timeout: 3000
     connect-timeout: 3000
@@ -33,3 +34,9 @@ spring:
         max-wait: -1    # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
         max-idle: 8     # 连接池中的最大空闲连接 默认 8
         min-idle: 2     # 连接池中的最小空闲连接 默认 0
+  minio:
+    endpoint: "http://127.0.0.1:9000"
+    accessKey: root
+    secretKey: jinpeng123
+    bucket: dev
+
