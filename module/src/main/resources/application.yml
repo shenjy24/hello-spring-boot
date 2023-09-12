@@ -4,12 +4,3 @@ server:
 spring:
   application:
     name: "spring-boot-module"
-  redis:
-    redisson:
-      config: |
-        singleServerConfig:
-          address: redis://127.0.0.1:6379
-          database: 0
-        threads: 0
-        nettyThreads: 0
-        transportMode: "NIO"

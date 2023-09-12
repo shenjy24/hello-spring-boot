@@ -1,11 +1,13 @@
 package com.jonas.jpa.service;
 
+import com.jonas.jpa.common.CacheConst;
 import com.jonas.jpa.config.LocaleHandler;
 import com.jonas.jpa.repository.mysql.bean.entity.User;
 import com.jonas.jpa.repository.mysql.bean.req.UserCreateReq;
 import com.jonas.jpa.repository.mysql.bean.view.UserView;
 import com.jonas.jpa.repository.mysql.dao.UserDao;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -26,6 +28,7 @@ public class UserService {
     private final UserDao userDao;
     private final LocaleHandler localeHandler;
 
+    @Cacheable(value = CacheConst.USER)
     public UserView getUser(long userId) {
         User user = userDao.findById(userId).orElse(null);
         return buildUserView(user);

@@ -2,6 +2,7 @@ package com.jonas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @createTime 2022/10/13 19:28
  * @description JpaApplication
  */
+@EnableCaching
 @SpringBootApplication
 @EnableTransactionManagement
 public class JpaApplication {
